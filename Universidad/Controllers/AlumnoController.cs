@@ -30,10 +30,14 @@ namespace Universidad.Controllers
         public ActionResult Agregar(Alumno Alumno)
         {
             try
-            {
-                gestor.AgregarAlumno(Alumno);
-                IList<Alumno> Alumnos = gestor.ObtenerAlumnos();
-                return RedirectToAction(nameof(Mostrar), Alumnos);
+            {   if (gestor.ExisteID(Alumno.Boleta))
+                    return View();
+                else
+                {
+                    gestor.AgregarAlumno(Alumno);
+                    IList<Alumno> Alumnos = gestor.ObtenerAlumnos();
+                    return RedirectToAction(nameof(Mostrar), Alumnos);
+                }
             }
             catch
             {
@@ -53,7 +57,6 @@ namespace Universidad.Controllers
         {
             try
             {
-
                 gestor.EliminarAlumno(id);
                 return RedirectToAction(nameof(Mostrar));
             }
@@ -64,6 +67,7 @@ namespace Universidad.Controllers
         }
         public ActionResult Edit(int id)
         {
+
             Alumno Alumno = gestor.ObtenerAlumno(id);
             return View(Alumno);
         }
@@ -74,9 +78,13 @@ namespace Universidad.Controllers
         {
             try
             {
-
-                gestor.EditarAlumno(id, Alumno);
-                return RedirectToAction(nameof(Mostrar), gestor.ObtenerAlumnos());
+                if (gestor.ExisteID(Alumno.Boleta))
+                    return View();
+                else
+                {
+                    gestor.EditarAlumno(id, Alumno);
+                    return RedirectToAction(nameof(Mostrar), gestor.ObtenerAlumnos());
+                }
             }
             catch
             {

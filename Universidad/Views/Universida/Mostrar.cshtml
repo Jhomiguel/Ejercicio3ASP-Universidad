@@ -1,0 +1,37 @@
+﻿@model List<Universidad>
+
+@{
+    ViewData["Title"] = "Mostrar";
+}
+
+<h1>Lista de Universidades</h1>
+
+<p>
+    <a asp-action="Agregar">Agregar Universidad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Universidad alumno in Model)
+        {
+            <tr>
+                <td> @alumno.Id_Universidad </td>
+                <td scope="row">@alumno.Nombre</td>
+               
+                
+
+                <td scope="row">
+                    @Html.ActionLink("Editar", "Edit", new { id = alumno.Id_Universidad }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = alumno.Id_Universidad })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

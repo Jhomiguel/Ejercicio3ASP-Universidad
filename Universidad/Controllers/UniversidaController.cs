@@ -7,10 +7,10 @@ using Universidad.Models;
 
 namespace Universidad.Controllers
 {
-    public class UniversidadController : Controller
+    public class UniversidaController : Controller
     {
         private GestorUniversidad gestor;
-        public UniversidadController()
+        public UniversidaController()
         {
             gestor = GestorUniversidad.GetInstance;
         }
@@ -31,9 +31,14 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.AgregarUniversidad(Universidad);
-                IList<Models.Universidad> Universidads = gestor.ObtenerUniversidades();
-                return RedirectToAction(nameof(Mostrar), Universidads);
+                if (gestor.ExisteID(Universidad.Id_Universidad))
+                    return View();
+                else
+                {
+                    gestor.AgregarUniversidad(Universidad);
+                    IList<Models.Universidad> Universidads = gestor.ObtenerUniversidades();
+                    return RedirectToAction(nameof(Mostrar), Universidads);
+                }
             }
             catch
             {
@@ -73,8 +78,13 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.EditarUniversidad(id, Universidad);
-                return RedirectToAction(nameof(Mostrar), gestor.ObtenerUniversidades());
+                if (gestor.ExisteID(Universidad.Id_Universidad))
+                    return View();
+                else
+                {
+                    gestor.EditarUniversidad(id, Universidad);
+                    return RedirectToAction(nameof(Mostrar), gestor.ObtenerUniversidades());
+                }
             }
             catch
             {

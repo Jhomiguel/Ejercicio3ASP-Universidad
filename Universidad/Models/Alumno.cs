@@ -13,5 +13,6 @@ namespace Universidad.Models
         public string CURP { get; set; }
         [DataType(DataType.Date)]
         public DateTime FechaNac { get; set; }
+
     }
 }

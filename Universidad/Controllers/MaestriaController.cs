@@ -31,9 +31,14 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.AgregarMaestria(Maestria);
-                IList<Maestria> Maestrias = gestor.ObtenerMaestrias();
-                return RedirectToAction(nameof(Mostrar), Maestrias);
+                if (gestor.ExisteID(Maestria.ID_Maestria))
+                    return View();
+                else
+                { 
+                    gestor.AgregarMaestria(Maestria);
+                    IList<Maestria> Maestrias = gestor.ObtenerMaestrias();
+                    return RedirectToAction(nameof(Mostrar), Maestrias);
+                }
             }
             catch
             {
@@ -73,8 +78,13 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.EditarMaestria(id, Maestria);
-                return RedirectToAction(nameof(Mostrar), gestor.ObtenerMaestrias());
+                if (gestor.ExisteID(Maestria.ID_Maestria))
+                    return View();
+                else
+                {
+                    gestor.EditarMaestria(id, Maestria);
+                    return RedirectToAction(nameof(Mostrar), gestor.ObtenerMaestrias());
+                }
             }
             catch
             {

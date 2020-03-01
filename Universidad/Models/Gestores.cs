@@ -56,15 +56,35 @@ namespace Universidad.Models
         {
             return GAlumno;
         }
+        public bool ExisteID(int id)
+        {
+            foreach(var item in GAlumno)
+              if (item.Boleta == id) return true;
+          
+            return false;
+                
+            
+        }
+
     }
     public class GestorDocente
     {
         private static GestorDocente instance = new GestorDocente();
 
-        private List<Docente> GDocente = new List<Docente>();
+        private List<Docente> GDocente = new List<Docente>()
+        { new Docente() {Id_Empleado=1, Nombre="Carlos",Telefono="809-233-2123" } };
         public static GestorDocente GetInstance => instance;
         private GestorDocente() { }
 
+        public bool ExisteID(int id)
+        {
+            foreach (var item in GDocente)
+                if (item.Id_Empleado == id) return true;
+
+            return false;
+
+
+        }
         public void AgregarDocente(Docente docente)
         {
             GDocente.Add(docente);
@@ -106,10 +126,18 @@ namespace Universidad.Models
     public class GestorMaestria
     {
         private static GestorMaestria instance = new GestorMaestria();
-        private List<Maestria> GMaestria = new List<Maestria>();
+        private List<Maestria> GMaestria = new List<Maestria>() { new Maestria() {ID_Maestria=1,Duracion="2 horas", Nombre="Matematicas" } };
         public static GestorMaestria GetInstance => instance;
         private GestorMaestria() { }
+        public bool ExisteID(int id)
+        {
+            foreach (var item in GMaestria)
+                if (item.ID_Maestria == id) return true;
 
+            return false;
+
+
+        }
         public void AgregarMaestria(Maestria Maestria)
         {
             GMaestria.Add(Maestria);
@@ -151,10 +179,19 @@ namespace Universidad.Models
     public class GestorUniversidad
     {
         private static GestorUniversidad instance = new GestorUniversidad();
-        private List<Universidad> GUniversidad = new List<Universidad>();
+        private List<Universidad> GUniversidad = new List<Universidad>() { new Universidad() { Id_Universidad=1,Nombre="UASD"} };
         public static GestorUniversidad GetInstance => instance;
         private GestorUniversidad() { }
 
+        public bool ExisteID(int id)
+        {
+            foreach (var item in GUniversidad)
+                if (item.Id_Universidad== id) return true;
+
+            return false;
+
+
+        }
         public void AgregarUniversidad(Universidad Universidad)
         {
             GUniversidad.Add(Universidad);

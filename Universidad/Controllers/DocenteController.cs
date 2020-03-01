@@ -31,9 +31,14 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.AgregarDocente(docente);
-                IList<Docente> docentes = gestor.ObtenerDocentes();
-                return RedirectToAction(nameof(Mostrar), docentes);
+                if (gestor.ExisteID(docente.Id_Empleado))
+                    return View();
+                else
+                {
+                    gestor.AgregarDocente(docente);
+                    IList<Docente> docentes = gestor.ObtenerDocentes();
+                    return RedirectToAction(nameof(Mostrar), docentes);
+                }
             }
             catch
             {
@@ -73,8 +78,13 @@ namespace Universidad.Controllers
         {
             try
             {
-                gestor.EditarDocente(id, Docente);
-                return RedirectToAction(nameof(Mostrar), gestor.ObtenerDocentes());
+                if (gestor.ExisteID(Docente.Id_Empleado))
+                    return View();
+                else
+                {
+                    gestor.EditarDocente(id, Docente);
+                    return RedirectToAction(nameof(Mostrar), gestor.ObtenerDocentes());
+                }
             }
             catch
             {

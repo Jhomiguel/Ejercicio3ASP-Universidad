@@ -1,0 +1,41 @@
+﻿@model List<Maestria>
+
+@{
+    ViewData["Title"] = "Mostrar";
+}
+
+<h1>Lista de Maestrias</h1>
+
+<p>
+    <a asp-action="Agregar">Agregar Maestria</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Duracion</th>
+     
+          
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Maestria maestria in Model)
+        {
+            <tr>
+                <td> @maestria.ID_Maestria </td>
+                <td scope="row">@maestria.Nombre</td>
+                <td scope="row">@maestria.Duracion</td>
+                
+             
+                <td scope="row">
+                    @Html.ActionLink("Editar", "Edit", new { id = maestria.ID_Maestria }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = maestria.ID_Maestria })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

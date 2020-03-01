@@ -109,3 +109,15 @@ C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcore
 C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Alumno\Agregar.cshtml.g.cs
 C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Alumno\Edit.cshtml.g.cs
 C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Alumno\Delete.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Docente\Mostrar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Maestria\Mostrar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Docente\Agregar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Docente\Delete.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Docente\Edit.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Maestria\Agregar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Maestria\Edit.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Maestria\Delete.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Universida\Mostrar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Universida\Agregar.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Universida\Edit.cshtml.g.cs
+C:\Users\Usuario\source\repos\Tarea3ASP\Ejercicio3\Universidad\obj\Debug\netcoreapp3.1\Razor\Views\Universida\Delete.cshtml.g.cs

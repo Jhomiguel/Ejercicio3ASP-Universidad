@@ -1,21 +1,21 @@
-﻿@model Alumno
+﻿@model Maestria
 
 @{
     ViewData["Title"] = "Agregar";
 }
 
-<h1>Agregar Alumno</h1>
+<h1>Agregar Maestria</h1>
+
 
 <hr />
 <div class="row">
-
     <div class="col-md-4">
         <form asp-action="Agregar" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Boleta" class="control-label"></label>
-                <input asp-for="Boleta" class="form-control" />
-                <span asp-validation-for="Boleta" class="text-danger"></span>
+                <label asp-for="ID_Maestria" class="control-label"></label>
+                <input asp-for="ID_Maestria" class="form-control" />
+                <span asp-validation-for="ID_Maestria" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label"></label>
@@ -23,14 +23,9 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CURP" class="control-label"></label>
-                <input asp-for="CURP" class="form-control" />
-                <span asp-validation-for="CURP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaNac" class="control-label"></label>
-                <input asp-for="FechaNac" class="form-control" />
-                <span asp-validation-for="FechaNac" class="text-danger"></span>
+                <label asp-for="Duracion" class="control-label"></label>
+                <input asp-for="Duracion" class="form-control" />
+                <span asp-validation-for="Duracion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Agregar" class="btn btn-primary" />
@@ -40,7 +35,7 @@
 </div>
 
 <div>
-    <a asp-action="Mostrar">Volver a la lista de Alumnos</a>
+    <a asp-action="Mostrar">Lista de Maestria</a>
 </div>
 
 @section Scripts {
