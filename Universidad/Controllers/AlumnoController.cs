@@ -30,35 +30,17 @@ namespace Universidad.Controllers
         public ActionResult Agregar(Alumno Alumno)
         {
             try
-            {   if (gestor.ExisteID(Alumno.Boleta))
-                    return View();
-                else
+            {
+                GestorMaestria maestria = GestorMaestria.GetInstance;
+                List <Maestria> master = maestria.ObtenerMaestrias();
+                if (!gestor.ExisteID(Alumno.Boleta) && gestor.ExisteMaestria(master.FindIndex(c => c.ID_Maestria== Alumno.Id_Maestria)))
                 {
                     gestor.AgregarAlumno(Alumno);
                     IList<Alumno> Alumnos = gestor.ObtenerAlumnos();
                     return RedirectToAction(nameof(Mostrar), Alumnos);
                 }
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        // GET: Alumnos/Delete/5
-        public ActionResult Delete(int id)
-        {
-            Alumno Alumno = gestor.ObtenerAlumno(id);
-            return View(Alumno);
-        }
-
-        // POST: Alumnos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, string vacio = null)
-        {
-            try
-            {
-                gestor.EliminarAlumno(id);
-                return RedirectToAction(nameof(Mostrar));
+                else return View();
+              
             }
             catch
             {
@@ -78,17 +60,35 @@ namespace Universidad.Controllers
         {
             try
             {
-                if (gestor.ExisteID(Alumno.Boleta))
-                    return View();
-                else
-                {
                     gestor.EditarAlumno(id, Alumno);
                     return RedirectToAction(nameof(Mostrar), gestor.ObtenerAlumnos());
-                }
+               
             }
             catch
             {
                 return View(Alumno);
+            }
+        }
+
+        // GET: Alumnos/Delete/5
+        public ActionResult Delete(int id)
+        {
+            Alumno Alumno = gestor.ObtenerAlumno(id);
+            return View(Alumno);
+        }
+
+        // POST: Alumnos/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, string vacio = null)
+        {
+            try
+            {
+                gestor.EliminarAlumno(id);
+                return RedirectToAction(nameof(Mostrar));
+            }
+            catch
+            {
+                return View();
             }
         }
 

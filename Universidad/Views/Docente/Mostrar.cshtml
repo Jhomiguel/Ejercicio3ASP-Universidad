@@ -15,24 +15,27 @@
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
             <th scope="col">Telefono</th>    
+            <th scope="col">Id Maestria</th>
+            <th scope="col">Id_Universidad</th>
         </tr>
     </thead>
     <tbody>
 
         @foreach (Docente docente in Model)
         {
-            <tr>
-                <td> @docente.Id_Empleado </td>
-                <td scope="row">@docente.Nombre</td>
-                <td scope="row">@docente.Telefono</td>
-               
-             
-                <td scope="row">
-                    @Html.ActionLink("Editar", "Edit", new { id = docente.Id_Empleado }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = docente.Id_Empleado })
-                </td>
+        <tr>
+            <td> @docente.Id_Empleado </td>
+            <td scope="row">@docente.Nombre</td>
+            <td scope="row">@docente.Telefono</td>
+            <td scope="row">@docente.Id_Maestria</td>
+            <td scope="row">@docente.Id_Universidad</td>
 
-            </tr>
+            <td scope="row">
+                @Html.ActionLink("Editar", "Edit", new { id = docente.Id_Empleado }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = docente.Id_Empleado })
+            </td>
+
+        </tr>
         }
     </tbody>
 </table>

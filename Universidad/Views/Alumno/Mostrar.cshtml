@@ -16,6 +16,7 @@
             <th scope="col">Nombre</th>
             <th scope="col">CURP</th>
             <th scope="col">Fecha_Nac</th>
+            <th scope="col">Id_Maestria</th>
           
         </tr>
     </thead>
@@ -28,6 +29,7 @@
                 <td scope="row">@alumno.Nombre</td>
                 <td scope="row">@alumno.CURP</td>
                 <td scope="row">@alumno.FechaNac</td>
+                <td scope="row">@alumno.Id_Maestria</td>
              
                 <td scope="row">
                     @Html.ActionLink("Editar", "Edit", new { id = alumno.Boleta }) |

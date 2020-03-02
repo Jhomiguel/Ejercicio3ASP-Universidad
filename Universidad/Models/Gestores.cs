@@ -11,13 +11,22 @@ namespace Universidad.Models
 
         private List<Alumno> GAlumno = new List<Alumno>()
         {
-            new Alumno() {Boleta=1,Nombre="Juan",CURP="asd",FechaNac= DateTime.Parse("12,12,2000")},
-            new Alumno() {Boleta=2,Nombre="Juan",CURP="asd",FechaNac= DateTime.Parse("12,12,2000")},
-            new Alumno() {Boleta=3,Nombre="Juan",CURP="asd",FechaNac= DateTime.Parse("12,12,2000")},
-            new Alumno() {Boleta=4,Nombre="Juan",CURP="asd",FechaNac= DateTime.Parse("12,12,2000")},
+            new Alumno() {Boleta=1,Nombre="Juan",CURP="ASD12DASDE13DAS2",FechaNac= DateTime.Parse("12,12,2000"),Id_Maestria=1},
+            new Alumno() {Boleta=2,Nombre="Carlos",CURP="GJASE12KDQWE32KA",FechaNac= DateTime.Parse("12,12,1990"),Id_Maestria=1},
+            new Alumno() {Boleta=3,Nombre="Jose",CURP="DASE23ASDQWEQd23",FechaNac= DateTime.Parse("12,12,1995"),Id_Maestria=1},
+            new Alumno() {Boleta=4,Nombre="Maria",CURP="JITOWE3MASE32JAS",FechaNac= DateTime.Parse("12,12,1994"),Id_Maestria=2},
         };
         public static GestorAlumno GetInstance => instance;
         private GestorAlumno() { }
+
+        public bool ExisteMaestria(int id)
+        {
+            foreach(var item in GAlumno)
+            {
+                if (item.Id_Maestria == id) return true;                 
+            }
+            return false;
+        }
 
         public void AgregarAlumno(Alumno Alumno)
         {
@@ -72,10 +81,30 @@ namespace Universidad.Models
         private static GestorDocente instance = new GestorDocente();
 
         private List<Docente> GDocente = new List<Docente>()
-        { new Docente() {Id_Empleado=1, Nombre="Carlos",Telefono="809-233-2123" } };
+        
+        {
+            new Docente() {Id_Empleado=1, Nombre="Carlos",Telefono="809-233-2123",Id_Maestria=1,Id_Universidad=1 },
+            new Docente() {Id_Empleado=2, Nombre="Juan",Telefono="809-233-2233",Id_Maestria=2,Id_Universidad=2 },
+        };
         public static GestorDocente GetInstance => instance;
         private GestorDocente() { }
 
+        public bool ExiteMaestria(int id)
+        {
+            foreach (var item in GDocente)
+            {
+                if (item.Id_Maestria == id) return true;
+            }
+            return false;
+        }
+        public bool ExisteUniversidad(int id)
+        {
+            foreach (var item in GDocente)
+            {
+                if (item.Id_Universidad == id) return true;
+            }
+            return false;
+        }
         public bool ExisteID(int id)
         {
             foreach (var item in GDocente)
@@ -126,7 +155,11 @@ namespace Universidad.Models
     public class GestorMaestria
     {
         private static GestorMaestria instance = new GestorMaestria();
-        private List<Maestria> GMaestria = new List<Maestria>() { new Maestria() {ID_Maestria=1,Duracion="2 horas", Nombre="Matematicas" } };
+        private List<Maestria> GMaestria = new List<Maestria>() 
+        {
+            new Maestria() {ID_Maestria=1,Duracion="2 horas", Nombre="Matematicas" },
+            new Maestria() {ID_Maestria=2,Duracion="1 hora", Nombre="Lengua Española" }
+        };
         public static GestorMaestria GetInstance => instance;
         private GestorMaestria() { }
         public bool ExisteID(int id)
@@ -179,7 +212,11 @@ namespace Universidad.Models
     public class GestorUniversidad
     {
         private static GestorUniversidad instance = new GestorUniversidad();
-        private List<Universidad> GUniversidad = new List<Universidad>() { new Universidad() { Id_Universidad=1,Nombre="UASD"} };
+        private List<Universidad> GUniversidad = new List<Universidad>() 
+        { 
+            new Universidad() { Id_Universidad=1,Nombre="UASD"},
+            new Universidad() { Id_Universidad=2,Nombre="ITLA"}
+        };
         public static GestorUniversidad GetInstance => instance;
         private GestorUniversidad() { }
 

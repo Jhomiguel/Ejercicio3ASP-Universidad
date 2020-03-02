@@ -10,5 +10,8 @@ namespace Universidad.Models
         public int Id_Empleado { get; set; }
         public string Nombre { get; set; }
         public string Telefono { get; set; }
+        public int Id_Maestria { get; set; }
+        public int Id_Universidad { get; set; }
+
     }
 }
